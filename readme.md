@@ -104,3 +104,12 @@ public function authorize()
     return true;
 }
 ```
+
+## Validation from within Controller
+
+```php
+$this->validate($request, [
+    'name' => 'required|min:6|max:255',
+    'password' => 'required|min:6|confirmed',
+]);
+```
