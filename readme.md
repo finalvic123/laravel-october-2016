@@ -81,3 +81,15 @@ return [
 Next, include `UserRequest` namespace in `UserController` - `use App\Http\Requests\UserRequest;`. 
 
 Now in `UserController`'s `store(Request $request)` method, replace `store(Request $request)` with `store(UserRequest $request)`.
+
+## To display error message
+
+Following are the sample to display an error message
+
+```html
+@if ($errors->has('email'))
+    <span class="help-block">
+        <strong>{{ $errors->first('email') }}</strong>
+    </span>
+@endif
+```
