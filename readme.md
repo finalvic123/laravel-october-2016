@@ -17,6 +17,12 @@
 - [ ] How to update a record?
 - [ ] How to create method spoofing?
 - [ ] How to get error messages from validators?
+- [ ] How to create a model and migration script together?
+- [ ] How to create a model factory?
+- [ ] How to create seeder file?
+- [ ] How to call model factory in seeder file?
+- [ ] How to call seeder file in `DatabaseSeeder.php`?
+- [ ] How to seed data?
 
 # How to create a page
 
