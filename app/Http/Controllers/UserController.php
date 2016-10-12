@@ -9,6 +9,9 @@ use App\Http\Requests;
 // include the model namespace, to retrieve the data
 use App\User;
 
+// custom request for user form validation
+use App\Http\Requests\UserRequest;
+
 class UserController extends Controller
 {
     /**
@@ -19,6 +22,7 @@ class UserController extends Controller
     public function index()
     {
         $users = User::where('id','!=', auth()->id())
+                    ->orderBy('created_at','desc')
                     ->paginate(15);
         return view('users.index', compact('users'));
     }
@@ -30,7 +34,7 @@ class UserController extends Controller
      */
     public function create()
     {
-        //
+        return view('users.create');
     }
 
     /**
@@ -39,9 +43,12 @@ class UserController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(UserRequest $request)
     {
-        //
+        // $some = $request->input('some'); // echo $some; some1
+        // echo $some;
+        User::create($request->input());
+        return redirect('/users');
     }
 
     /**
@@ -64,7 +71,8 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('users.edit', compact('user'));
     }
 
     /**
@@ -76,7 +84,15 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        // do validation from within controller
+        $this->validate($request, [
+            'name' => 'required|min:6|max:255',
+            'password' => 'required|min:6|confirmed',
+        ]);
+        $inputs = $request->only('name','password');
+        $inputs['password'] = bcrypt($inputs['password']);
+        User::where('id', $id)->update($inputs);
+        return redirect('users');
     }
 
     /**

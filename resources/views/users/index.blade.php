@@ -4,7 +4,9 @@
 <div class="container">
     <div class="row">
 		<div class="col-md-12">
-			<h1>Users Management</h1>
+			<h1>Users Management
+			<a href="{{ route('users.create') }}" class="btn btn-success pull-right">New User</a>
+			</h1>
 			{{ $users->links() }}
 			<div class="table-responsive">
 				<table class="table table-hover">
