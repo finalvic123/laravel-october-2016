@@ -42,4 +42,22 @@ Run `php artisan tinker`.
 
 Then run `factory(\App\User::class, 100)->create();`. This will create 100 users.
 
+# How to call PUT and DELETE from Ajax
 
+You need to method spoofing when calling `PUT` and `DELETE` method in Laravel since HTTP call does not capture other that `GET` and `POST`. Following are the sample code when you need to call a `PUT` or `DELETE` URI using Ajax.
+
+```javascript
+function confirmDelete(id)
+{
+	if(confirm('Are you sure'))
+	{
+		var data = {
+			_token : window.Laravel.csrfToken,
+			_method : 'delete'
+		}
+		$.post('/users/' + id, data, function(data, textStatus, xhr) {
+			// do something
+		});
+	}
+}
+```
