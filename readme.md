@@ -61,3 +61,23 @@ function confirmDelete(id)
 	}
 }
 ```
+
+# How to create a validator
+
+Create custom request by running `php artisan make:request UserRequest`.
+
+Open `UserRequest.php` located at `app/Http/Requests`.
+
+Add validation rules for your form at `rules()` method:
+
+```php
+return [
+    'name' => 'required|min:6|max:255',
+    'email' => 'required|email|max:255|unique:users',
+    'password' => 'required|min:6|confirmed',
+];
+```
+
+Next, include `UserRequest` namespace in `UserController` - `use App\Http\Requests\UserRequest;`. 
+
+Now in `UserController`'s `store(Request $request)` method, replace `store(Request $request)` with `store(UserRequest $request)`.
