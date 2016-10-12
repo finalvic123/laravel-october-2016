@@ -61,8 +61,7 @@
                                 </a>
 
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="{{ url('/about-us') }}">About Us</a></li>
-                                    <li><a href="{{ url('/contact-us') }}">Contact Us</a></li>
+                                    <li><a href="{{ url('/users') }}">Users Management</a></li>
                                     <li>
                                         <a href="{{ url('/logout') }}"
                                             onclick="event.preventDefault();

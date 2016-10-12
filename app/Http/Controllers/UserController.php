@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 
+// include the model namespace, to retrieve the data
 use App\User;
 
 class UserController extends Controller
@@ -17,9 +18,16 @@ class UserController extends Controller
      */
     public function index()
     {
-        $users = User::paginate(5);
-        // return view('users.index')->with('users' ,$users);
+        // $user = User::orderBy('name', 'desc')
+        //             ->take(10)
+        //             ->get();
+
+        // dd($user);
+
+        $users = User::paginate(15);
         return view('users.index', compact('users'));
+
+        // return view('users.index')->with('users' ,$users);
     }
 
     /**

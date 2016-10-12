@@ -35,3 +35,11 @@ Create the view - create new folder in `resources/views/` named `pages`. In `pag
 </div>
 @endsection
 ```
+
+# How to create a list of users using Artisan
+
+Run `php artisan tinker`.
+
+Then run `factory(\App\User::class, 100)->create();`. This will create 100 users.
+
+
