@@ -132,3 +132,15 @@ $this->validate($request, [
     'password' => 'required|min:6|confirmed',
 ]);
 ```
+
+# How to create a model and migration script together?
+
+Just run following command:
+
+```php
+php artisan make:model Post -m
+```
+
+This will create a model named `Post.php` in `app` folder and a migration script `timestamp_create_posts_table.php` in `database\migrations` folder.
+
+Read more about [Creating Columns](https://laravel.com/docs/5.3/migrations#creating-columns)
