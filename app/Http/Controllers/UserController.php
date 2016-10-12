@@ -18,16 +18,9 @@ class UserController extends Controller
      */
     public function index()
     {
-        // $user = User::orderBy('name', 'desc')
-        //             ->take(10)
-        //             ->get();
-
-        // dd($user);
-
-        $users = User::paginate(15);
+        $users = User::where('id','!=', auth()->id())
+                    ->paginate(15);
         return view('users.index', compact('users'));
-
-        // return view('users.index')->with('users' ,$users);
     }
 
     /**
@@ -59,7 +52,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $user = User::find($id);
+        return view('users.show', compact('user'));
     }
 
     /**
@@ -93,7 +87,10 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        User::destroy($id);
-        return redirect('users');
+        if(User::destroy($id)) {
+            return 'Record deleted';
+        } else {
+            return 'Unable to delete record';
+        }
     }
 }

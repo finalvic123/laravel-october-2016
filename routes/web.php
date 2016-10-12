@@ -20,7 +20,8 @@ Auth::routes();
 Route::get('/home', 'HomeController@index');
 
 // User List
-Route::get('users', 'UserController@index'); 
+// Route::get('users', 'UserController@index'); 
+Route::resource('users', 'UserController');
 
 // About Us
 Route::get('about-us', 'PageController@aboutUs');
