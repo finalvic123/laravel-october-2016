@@ -144,3 +144,48 @@ php artisan make:model Post -m
 This will create a model named `Post.php` in `app` folder and a migration script `timestamp_create_posts_table.php` in `database\migrations` folder.
 
 Read more about [Creating Columns](https://laravel.com/docs/5.3/migrations#creating-columns)
+
+After done adding columns, run `php artisan migrate` to run the migration script and have your tables in database.
+
+# How to create model factory
+
+Open up `database\factories\ModelFactory.php` and copy the user's factory and update as following:
+
+```php
+$factory->define(App\Post::class, function (Faker\Generator $faker) {
+    
+    return [
+        'title' => $faker->sentence,
+        'description' => $faker->text
+    ];
+});
+```
+
+# How to create seeder file and seed the data
+
+Create a seeder file using following command:
+
+```php
+php artisan make:seeder PostTableSeeder
+```
+
+Open `PostTableSeeder.php` located at `database\seeds` folder and call the factory for `Post`, as following in `run` method:
+
+```php
+factory(\App\Post::class, 100)->create();
+```
+
+# How to call seeder file
+
+Open up `database\seeds\DatabaseSeeder.php` and call the `PostTableSeeder` as following:
+
+```php
+public function run()
+{
+    $this->call(PostTableSeeder::class);
+}
+```
+
+# How to seed data
+
+Run `php artisan db:seed`
