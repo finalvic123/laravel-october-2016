@@ -93,3 +93,14 @@ Following are the sample to display an error message
     </span>
 @endif
 ```
+
+## Authorization
+
+You may return to `true` in `UserRequest`'s `authorize()` method if there's no particular authorization required.
+
+```php
+public function authorize()
+{
+    return true;
+}
+```
