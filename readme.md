@@ -1,22 +1,22 @@
 
 # Syllabus Checklist
 
-- [] How to create a new Laravel project?
-- [] How to create a page?
-- [] How to create a route?
-- [] How to create a controller?
-- [] How to create a view?
-- [] How to create users from tinker?
-- [] How to read a record?
-- [] How to read records?
-- [] How to create pagination?
-- [] How to create a form?
-- [] How to validate form using Request?
-- [] How to validate form in Controller?
-- [] How to insert a new record?
-- [] How to update a record?
-- [] How to create method spoofing?
-- [] How to get error messages from validators?
+- [ ] How to create a new Laravel project?
+- [ ] How to create a page?
+- [ ] How to create a route?
+- [ ] How to create a controller?
+- [ ] How to create a view?
+- [ ] How to create users from tinker?
+- [ ] How to read a record?
+- [ ] How to read records?
+- [ ] How to create pagination?
+- [ ] How to create a form?
+- [ ] How to validate form using Request?
+- [ ] How to validate form in Controller?
+- [ ] How to insert a new record?
+- [ ] How to update a record?
+- [ ] How to create method spoofing?
+- [ ] How to get error messages from validators?
 
 # How to create a page
 
